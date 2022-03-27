@@ -16,5 +16,4 @@ class Urls {
     "regular": regular,
     "small": small,
   };
-
 }
