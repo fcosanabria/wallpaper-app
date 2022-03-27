@@ -13,6 +13,4 @@ class RestApiService {
   void convertJsonToObject(int pagenumber) {
     getJsonDataFromApi(api +"");
   }
-
-
 }
