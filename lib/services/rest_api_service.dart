@@ -8,6 +8,7 @@ class RestApiService {
     Uri uri = Uri.parse(url);
     var response = await http.get(uri);
     var parsedData = jsonDecode(response.body) as List<dynamic>;
+    print(parsedData);
     return parsedData;
   }
 

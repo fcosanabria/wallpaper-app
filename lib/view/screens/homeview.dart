@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:wallpaperapp/controller/home_controller.dart';
 import 'package:wallpaperapp/view/utils/helpers/color_helper.dart';
 import 'package:wallpaperapp/view/utils/helpers/style_helper.dart';
 import '../utils/shared/shared_grid_widget.dart';
@@ -38,19 +40,19 @@ class HomeView extends StatelessWidget {
                 style: links),
           ]),
         ),
-        body: const TabBarView(
-          physics: BouncingScrollPhysics(),
+        body: TabBarView(
+          physics: const BouncingScrollPhysics(),
           children: [
-            Builder(
-                builder: (context){
-                  return SharedGridWidget();
-                }
-            ),
-            SharedGridWidget(),
-            SharedGridWidget(),
-          ],
-        ),
+            GetBuilder<HomeController>(
+              init: HomeController(),
+              builder: (context) {
+                return const SharedGridWidget();
+              }),
+            const SharedGridWidget(),
+            const SharedGridWidget(),
+        ],),
       ),
-    );
+      );
+
   }
 }
